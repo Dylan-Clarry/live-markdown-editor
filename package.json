@@ -9,16 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@codemirror/commands": "^6.2.2",
-    "@codemirror/gutter": "^0.19.9",
-    "@codemirror/highlight": "^0.19.8",
-    "@codemirror/history": "^0.19.2",
-    "@codemirror/lang-markdown": "^6.1.0",
-    "@codemirror/language": "^6.6.0",
-    "@codemirror/language-data": "^6.1.0",
-    "@codemirror/matchbrackets": "^0.19.4",
-    "@codemirror/state": "^6.2.0",
-    "@codemirror/theme-one-dark": "^6.1.1",
+    "@uiw/react-codemirror": "^4.19.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
