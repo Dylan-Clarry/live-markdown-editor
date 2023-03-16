@@ -23,10 +23,12 @@ themeMap.set("VSCode Dark", vscodeDark);
 
 interface Props {
     theme: string;
+    setContent: Dispatch<SetStateAction<string>>
 }
 
-export default function MarkdownEditor({ theme }: Props) {
+export default function MarkdownEditor({ theme, setContent }: Props) {
     const onChange = useCallback((value: any, viewUpdate: any) => {
+        setContent(value);
         console.log("value", value);
         console.log("viewUpdate", viewUpdate);
     }, []);
