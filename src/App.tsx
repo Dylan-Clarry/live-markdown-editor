@@ -1,7 +1,9 @@
 import { useState } from "react";
 import MarkdownEditor from "./MarkdownEditor";
+import MarkdownPreview from '@uiw/react-markdown-preview';
 
 export default function App() {
+    const [content, setContent] = useState("");
     const [theme, setTheme] = useState("");
 
     const themeArr = [
@@ -28,6 +30,7 @@ export default function App() {
                 ))}
             </select>
             <MarkdownEditor theme={theme} />
+            <MarkdownPreview source={content} />
         </div>
     );
 }

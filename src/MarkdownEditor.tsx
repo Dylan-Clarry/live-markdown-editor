@@ -22,7 +22,7 @@ themeMap.set("Tokyo Night", tokyoNight);
 themeMap.set("VSCode Dark", vscodeDark);
 
 interface Props {
-    theme: string
+    theme: string;
 }
 
 export default function MarkdownEditor({ theme }: Props) {
@@ -33,15 +33,12 @@ export default function MarkdownEditor({ theme }: Props) {
     const editorTheme = themeMap.get(theme) || tokyoNight;
 
     return (
-        <div>
-            <h1>Editor</h1>
-            <CodeMirror
-                value="console.log('hello world!');"
-                height="200px"
-                theme={editorTheme}
-                extensions={[javascript({ jsx: true })]}
-                onChange={onChange}
-            />
-        </div>
+        <CodeMirror
+            value="console.log('hello world!');"
+            theme={editorTheme}
+            height="200px"
+            extensions={[javascript({ jsx: true })]}
+            onChange={onChange}
+        />
     );
 }
