@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MarkdownEditor from "./MarkdownEditor";
-import MarkdownPreview from '@uiw/react-markdown-preview';
+import MarkdownPreview from "@uiw/react-markdown-preview";
 
 export default function App() {
     const [content, setContent] = useState("console.log('Hello World!);");
@@ -29,7 +29,9 @@ export default function App() {
                     <option value={theme}>{theme}</option>
                 ))}
             </select>
-            <MarkdownEditor setContent={setContent} theme={theme} />
+            <div className="h-40">
+                <MarkdownEditor setContent={setContent} theme={theme} />
+            </div>
             <MarkdownPreview className="markdown-preview" source={content} />
         </div>
     );
