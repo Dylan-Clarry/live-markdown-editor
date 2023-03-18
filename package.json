@@ -9,16 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/commands": "^6.2.2",
     "@codemirror/lang-javascript": "^6.1.4",
     "@codemirror/state": "^6.2.0",
-    "@uiw/codemirror-themes-all": "^4.19.9",
-    "@uiw/react-codemirror": "^4.19.9",
-    "@uiw/react-markdown-preview": "^4.1.10",
+    "@codemirror/view": "^6.9.2",
+    "codemirror": "^6.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/codemirror": "^5.60.7",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react-swc": "^3.0.0",
