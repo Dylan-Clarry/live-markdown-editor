@@ -8,6 +8,7 @@ import { javascript } from "@codemirror/lang-javascript";
 import { defaultKeymap, indentWithTab, history } from "@codemirror/commands";
 import { oneDark } from "@codemirror/theme-one-dark";
 import { languages } from "@codemirror/language-data";
+import { vim } from "@replit/codemirror-vim";
 
 interface Props {
     initialDoc: string;
@@ -20,12 +21,17 @@ export default function useCodeMirror<T extends Element>({
 }: Props): [MutableRefObject<T | null>, EditorView?] {
     const refContainer = useRef<T>(null);
     const [editorView, setEditorView] = useState<EditorView>();
+    const userExtensionSettings = [
+        vim(),
+        oneDark
+    ];
 
     useEffect(() => {
         if (!refContainer) return;
         const startState = EditorState.create({
             doc: initialDoc,
             extensions: [
+                ...userExtensionSettings,
                 lineNumbers(),
                 highlightActiveLine(),
                 highlightActiveLineGutter(),
@@ -44,7 +50,6 @@ export default function useCodeMirror<T extends Element>({
                         onChange && onChange(update.state);
                     }
                 }),
-                oneDark,
             ],
         });
 
