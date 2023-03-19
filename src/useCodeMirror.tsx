@@ -1,9 +1,13 @@
 import { useState, useRef, useEffect, MutableRefObject } from "react";
 import { basicSetup } from "codemirror";
 import { EditorState } from "@codemirror/state";
-import { EditorView, keymap } from "@codemirror/view";
+import { EditorView, keymap, lineNumbers, highlightActiveLine, highlightActiveLineGutter } from "@codemirror/view";
+import { indentOnInput, bracketMatching } from "@codemirror/language";
+import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
 import { javascript } from "@codemirror/lang-javascript";
-import { defaultKeymap } from "@codemirror/commands";
+import { defaultKeymap, indentWithTab, history } from "@codemirror/commands";
+import { oneDark } from "@codemirror/theme-one-dark";
+import { languages } from "@codemirror/language-data";
 
 interface Props {
     initialDoc: string;
@@ -22,12 +26,25 @@ export default function useCodeMirror<T extends Element>({
         const startState = EditorState.create({
             doc: initialDoc,
             extensions: [
+                lineNumbers(),
+                highlightActiveLine(),
+                highlightActiveLineGutter(),
+                indentOnInput(),
+                history(),
+                bracketMatching(),
+                keymap.of([indentWithTab]),
+                markdown({
+                    base: markdownLanguage,
+                    codeLanguages: languages,
+                    addKeymap: true,
+                }),
                 EditorView.lineWrapping,
                 EditorView.updateListener.of((update) => {
                     if (update.changes) {
                         onChange && onChange(update.state);
                     }
                 }),
+                oneDark,
             ],
         });
 
