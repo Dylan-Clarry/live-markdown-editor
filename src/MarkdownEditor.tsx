@@ -1,4 +1,5 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, RefObject } from "react";
+import { EditorState } from "@codemirror/state";
 import useCodeMirror from "./useCodeMirror";
 
 interface Props {
@@ -6,15 +7,22 @@ interface Props {
     onChange: (doc: string) => void;
 }
 
-export default function Editor({ initialDoc, onChange }: Props) {
+export default function MarkdownEditor({ initialDoc, onChange }: Props) {
     const handleDocChange = useCallback(
-        state => onChange(state.doc.toString()), [onChange]
+        (state: EditorState) => onChange(state.doc.toString()),
+        [onChange]
     );
 
     const [refContainer, editorView] = useCodeMirror({
         initialDoc: initialDoc,
-        onChange: onChange
+        onChange: handleDocChange,
     });
 
-    return <div></div>;
+    useEffect(() => {
+        if(editorView) {
+            // do nothing for now...
+        }
+    }, [editorView]);
+
+    return <div ref={refContainer as RefObject<HTMLDivElement>}></div>;
 }

@@ -33,10 +33,14 @@ export default function useCodeMirror<T extends Element>({
 
         const startView = new EditorView({
             state: startState,
-            extensions: [basicSetup, javascript()],
+            extensions: [basicSetup, javascript(), keymap.of(defaultKeymap)],
             parent: refContainer.current ?? undefined,
         });
         setEditorView(startView);
+
+        return () => {
+            startView.destroy();
+        };
     }, [refContainer]);
     return [refContainer, editorView];
 }
