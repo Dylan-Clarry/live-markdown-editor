@@ -5,23 +5,3 @@
 body {
     @apply bg-neutral-900 text-neutral-100;
 }
-
-.CodeMirror {
-    overflow: auto;
-    min-height: 350px;
-}
-
-.markdown-editor {
-    width: 50%;
-    margin-left: 50px;
-    border-radius: 5px;
-}
-
-.markdown-preview {
-    margin-left: 50px;
-    min-height: 500px;
-    max-height: 800px;
-    width: 50%;
-    margin-top: 10px;
-    padding: 16px;
-}
