@@ -20,15 +20,13 @@
     "@replit/codemirror-vim": "^6.0.9",
     "@uiw/react-markdown-preview": "^4.1.10",
     "codemirror": "^6.0.1",
-    "hast-util-sanitize": "^4.1.0",
+    "github-markdown-css": "^5.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.5",
-    "remark-code": "^1.0.0-0",
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",
     "remark-react": "^9.0.1",
-    "remark-react-codemirror": "^1.1.3",
     "unified": "^10.1.2"
   },
   "devDependencies": {
