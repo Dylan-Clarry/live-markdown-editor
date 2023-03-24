@@ -1,6 +1,5 @@
 import { useState, useCallback } from "react";
 import MarkdownEditor from "./MarkdownEditor";
-import MarkdownView from "./MarkdownView";
 import RemarkView from "./RemarkView";
 
 export default function App() {
